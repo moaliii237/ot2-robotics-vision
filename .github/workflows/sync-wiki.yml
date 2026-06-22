@@ -1,0 +1,132 @@
+name: Sync wiki from wiki-src
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "wiki-src/**"
+      - ".github/workflows/sync-wiki.yml"
+  gollum:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    # Avoid ping-pong: skip if the pusher is the Actions bot
+    if: ${{ github.actor != 'github-actions[bot]' && github.actor != 'actions-user' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Clone associated Wiki repo
+        run: |
+          set -eux
+          WIKI_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git"
+          git clone "$WIKI_URL" wiki
+          cd wiki
+          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Decide sync mode (push = regular; gollum may initialize)
+        id: init-check
+        run: |
+          set -eux
+          echo "Event type: ${{ github.event_name }}"
+
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "📝 REGULAR SYNC: push to main with wiki-src changes"
+            echo "should_initialize=false" >> $GITHUB_OUTPUT
+            echo "sync_type=regular" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "🔍 Gollum event detected; checking if first-time initialization is needed..."
+
+          # Only check the init marker on gollum events
+          if [ -f "wiki/.wiki-initialized-do-not-delete" ]; then
+            echo "⏭️  SKIP: Wiki already initialized (marker file exists)"
+            echo "should_initialize=false" >> $GITHUB_OUTPUT
+            echo "sync_type=skip" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Count files
+          WIKI_FILES=$(find wiki -name "*.md" -not -path "*/.git/*" 2>/dev/null | wc -l || echo "0")
+          WIKISRC_FILES=$(find wiki-src -name "*.md" 2>/dev/null | wc -l || echo "0")
+          echo "Wiki has ${WIKI_FILES} markdown files"
+          echo "wiki-src has ${WIKISRC_FILES} markdown files"
+
+          # Robust first-time heuristic (no brittle filename checks)
+          if [ "$WIKI_FILES" -le 3 ] && [ "$WIKISRC_FILES" -ge $((WIKI_FILES + 5)) ]; then
+            echo "🎯 FIRST-TIME INITIALIZATION DETECTED - will populate wiki with templates"
+            echo "should_initialize=true" >> $GITHUB_OUTPUT
+            echo "sync_type=initialization" >> $GITHUB_OUTPUT
+          else
+            echo "⏭️  SKIP: Regular wiki edit on an already-initialized (or insufficient delta) wiki"
+            echo "should_initialize=false" >> $GITHUB_OUTPUT
+            echo "sync_type=skip" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Mirror wiki-src -> wiki
+        if: steps.init-check.outputs.should_initialize == 'true' || steps.init-check.outputs.sync_type == 'regular'
+        run: |
+          set -eux
+
+          if [ "${{ steps.init-check.outputs.sync_type }}" = "initialization" ]; then
+            echo "🌱 First-time initialization: Populating wiki with template files..."
+          else
+            echo "🔄 Regular sync: Updating wiki from wiki-src changes..."
+          fi
+
+          # Sync wiki-src to wiki (no --delete for safety)
+          rsync -av --exclude ".git" wiki-src/ wiki/
+
+          # Create marker file for initialization (only for gollum initialization)
+          if [ "${{ steps.init-check.outputs.sync_type }}" = "initialization" ]; then
+            cd wiki
+            echo "Wiki initialized on $(date)" > .wiki-initialized-do-not-delete
+            echo "✅ Created initialization marker file: .wiki-initialized-do-not-delete"
+            cd ..
+          fi
+
+      - name: Commit & push to Wiki
+        if: steps.init-check.outputs.should_initialize == 'true' || steps.init-check.outputs.sync_type == 'regular'
+        run: |
+          set -eux
+          cd wiki
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            if [ "${{ steps.init-check.outputs.sync_type }}" = "initialization" ]; then
+              git commit -m "Initialize wiki with template files from wiki-src"
+              echo "🎉 Wiki initialized with complete template structure!"
+            else
+              git commit -m "Sync from repo wiki-src: ${GITHUB_SHA}"
+              echo "✅ Wiki updated from wiki-src changes"
+            fi
+            # Try both default wiki branches; fall back to default
+            git push origin HEAD:master || git push origin HEAD:main || git push
+          else
+            echo "📝 No changes to commit."
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          case "${{ steps.init-check.outputs.sync_type }}" in
+            "initialization")
+              echo "🎯 First-time wiki initialization completed!"
+              echo "✅ Students now have complete learning log structure in their wiki"
+              ;;
+            "regular")
+              echo "🔄 Regular sync completed: wiki-src → wiki"
+              ;;
+            "skip")
+              echo "⏭️  Sync skipped: Gollum edit on already-initialized wiki (or insufficient delta)"
+              ;;
+            *)
+              echo "❓ Unknown sync type"
+              ;;
+          esac

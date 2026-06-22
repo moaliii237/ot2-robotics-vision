@@ -1,0 +1,224 @@
+name: "Auto-Sync: Wiki edits to wiki-src (with conflict fallback)"
+
+on:
+  gollum:          # triggers when pages are created/edited in the Wiki UI
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  wiki_to_repo_sync:
+    # Avoid ping-pong: skip if the pusher is any Actions bot
+    if: ${{ github.actor != 'github-actions[bot]' && github.actor != 'actions-user' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # full history (helps with push fallback)
+
+      - name: Clone Wiki
+        run: |
+          set -euxo pipefail
+          WIKI_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git"
+          git clone "$WIKI_URL" wiki
+
+      - name: Check if wiki should sync (protect starter files)
+        id: wiki-check
+        shell: bash
+        run: |
+          set -euxo pipefail
+          
+          echo "Analyzing wiki content to determine if sync is safe..."
+          
+          # Count markdown files in each location
+          WIKI_FILES=$(find wiki -name "*.md" -not -path "*/\.git/*" 2>/dev/null | wc -l || echo "0")
+          WIKISRC_FILES=$(find wiki-src -name "*.md" 2>/dev/null | wc -l || echo "0")
+          
+          echo "Wiki has $WIKI_FILES markdown files"
+          echo "wiki-src has $WIKISRC_FILES markdown files"
+          
+          # Check for your template structure by *space* filenames (post-normalization)
+          HAS_TEMPLATE_STRUCTURE=false
+          if [ "$WIKISRC_FILES" -gt 8 ]; then
+            if [ -f "wiki-src/Home.md" ] \
+               && [ -f "wiki-src/A - Reflecting on past block.md" ] \
+               && [ -f "wiki-src/D - final reflections.md" ]; then
+              echo "Template structure detected in wiki-src"
+              HAS_TEMPLATE_STRUCTURE=true
+            fi
+          fi
+          
+          # Determine sync safety
+          if [ "$HAS_TEMPLATE_STRUCTURE" = "true" ] && [ "$WIKI_FILES" -le 2 ]; then
+            echo "🛡️  PROTECTION: wiki-src has template structure but wiki has minimal content"
+            echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
+          elif [ "$WIKISRC_FILES" -gt 0 ] && [ "$WIKI_FILES" -eq 0 ]; then
+            echo "🛡️  PROTECTION: wiki is empty but wiki-src has content"
+            echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
+          elif [ "$WIKI_FILES" -ge "$WIKISRC_FILES" ] || [ "$WIKI_FILES" -gt 5 ]; then
+            echo "✅ Wiki has substantial content - safe to sync"
+            echo "is_safe_to_sync=true" >> $GITHUB_OUTPUT
+          else
+            echo "🛡️  PROTECTION: Insufficient wiki content to safely overwrite wiki-src"
+            echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sync wiki -> wiki-src (with filename normalization)
+        if: steps.wiki-check.outputs.is_safe_to_sync == 'true'
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p wiki-src
+          
+          echo "=== DEBUG: Files in wiki (pre-rsync) ==="
+          find wiki -name "*.md" -not -path "*/.git/*" | sort || true
+          echo "=== DEBUG: Files in wiki-src (pre-rsync) ==="
+          find wiki-src -name "*.md" | sort || true
+          
+          # Copy wiki -> wiki-src (exclude dot markers)
+          rsync -av \
+            --exclude ".git" \
+            --exclude ".wiki-initialized-do-not-delete" \
+            --exclude ".seeded_by_template" \
+            wiki/ wiki-src/
+          
+          echo "=== Step 2: Normalize filenames in wiki-src ==="
+          shopt -s nullglob
+          pushd wiki-src > /dev/null
+          
+          RENAMED=false
+          
+          # Normalize *all* .md filenames (idempotent)
+          for file in *.md; do
+            [ -f "$file" ] || continue
+            corrected="$file"
+          
+            # 1) Revert GitHub Wiki's '---' back to ' - '
+            corrected="${corrected//---/ - }"
+          
+            # 2) If there's a ' - ' separator, normalize the *suffix*:
+            #    - hyphens -> spaces     (Reading-Questions -> Reading Questions)
+            #    - underscores -> spaces (Reflecting_on_past_block -> Reflecting on past block)
+            if [[ "$corrected" == *" - "* ]]; then
+              prefix="${corrected%% - *}"
+              suffix="${corrected#* - }"
+              suffix="${suffix//-/ }"
+              suffix="${suffix//_/ }"
+              corrected="${prefix} - ${suffix}"
+              # collapse multiple spaces
+              corrected="$(echo "$corrected" | tr -s ' ')"
+            fi
+          
+            # 3) Special tidy: "B - Week-4.md" → "B - Week 4.md"
+            if [[ "$corrected" == "B - Week-"*.md ]]; then
+              corrected="${corrected//Week-/Week }"
+            fi
+          
+            # Skip if unchanged
+            if [[ "$corrected" == "$file" ]]; then
+              echo "ℹ️  '$file' already normalized; skipping"
+              continue
+            fi
+          
+            # If destination exists, replace it (single canonical filename)
+            if [[ -e "$corrected" && "$corrected" != "$file" ]]; then
+              echo "⚠️  Destination '$corrected' exists; replacing"
+              rm -f -- "$corrected"
+            fi
+          
+            echo "🔧 Rename: '$file' → '$corrected'"
+            mv -- "$file" "$corrected"
+            RENAMED=true
+          done
+          
+          popd > /dev/null
+          shopt -u nullglob
+          
+          if [ "$RENAMED" = true ]; then
+            echo "✅ Filename normalization completed"
+          else
+            echo "📝 No filename transformations to fix"
+          fi
+          
+          echo "=== DEBUG: Files in wiki-src (post-normalization) ==="
+          find wiki-src -name "*.md" | sort || true
+
+      - name: Configure git
+        if: steps.wiki-check.outputs.is_safe_to_sync == 'true'
+        run: |
+          set -euxo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+
+      - name: Commit changes (if any)
+        if: steps.wiki-check.outputs.is_safe_to_sync == 'true'
+        id: commit-step
+        shell: bash
+        run: |
+          set -euxo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+            exit 0
+          fi
+          
+          git add wiki-src/
+          if [ -z "$(git diff --cached --name-only)" ]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "Nothing staged to commit"
+            exit 0
+          fi
+          
+          git commit -m "Auto-sync: Wiki → wiki-src [from-wiki] $(date -u +"%Y-%m-%d %H:%M UTC")"
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Try direct push to main
+        if: steps.wiki-check.outputs.is_safe_to_sync == 'true' && steps.commit-step.outputs.has_changes == 'true'
+        id: push-main
+        shell: bash
+        run: |
+          set -euxo pipefail
+          # Attempt direct push; if it fails (non-fast-forward), fall back to PR
+          if git push origin HEAD:main; then
+            echo "pushed=true" >> $GITHUB_OUTPUT
+          else
+            echo "pushed=false" >> $GITHUB_OUTPUT
+            # Put the changes back into the working tree for the PR step
+            git reset --soft HEAD~1
+          fi
+
+      - name: Create PR (fallback when direct push fails)
+        if: steps.wiki-check.outputs.is_safe_to_sync == 'true' && steps.commit-step.outputs.has_changes == 'true' && steps.push-main.outputs.pushed == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Sync wiki -> wiki-src [from-wiki]"
+          title: "Wiki → wiki-src: changes from Wiki (review due to branch divergence)"
+          body: |
+            This PR syncs changes from the **Wiki** into `wiki-src/`.
+            
+            Direct push to `main` was not possible (non-fast-forward). Please review and merge.
+          branch: sync/wiki-to-src-${{ github.run_id }}
+          delete-branch: true
+          add-paths: |
+            wiki-src/**
+          labels: |
+            auto-sync
+            needs-review
+
+      - name: Summary
+        if: always()
+        run: |
+          set -euxo pipefail
+          if [ "${{ steps.wiki-check.outputs.is_safe_to_sync }}" = "false" ]; then
+            echo "🛡️  Wiki sync skipped - protecting template files"
+          elif [ "${{ steps.commit-step.outputs.has_changes }}" != "true" ]; then
+            echo "📝 No wiki changes detected - nothing to sync"
+          elif [ "${{ steps.push-main.outputs.pushed }}" = "true" ]; then
+            echo "✅ Wiki changes synced successfully via direct commit"
+          else
+            echo "📦 Created a PR because main wasn't fast-forwardable"
+          fi

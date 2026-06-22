@@ -1,0 +1,497 @@
+{
+  "plant": {
+    "model_form": "v(t) = K * u_step * (1 - exp(-t/tau))",
+    "axes": {
+      "axis_x": {
+        "K_m_per_s_per_unit": 1.0004476114164216,
+        "tau_s": 0.0037425612142537846,
+        "rmse_m_per_s": 0.016015211405354984,
+        "r_squared": 0.9611932595330214,
+        "cov": [
+          [
+            4.122315454562212e-05,
+            4.87741059807073e-07
+          ],
+          [
+            4.87741059807073e-07,
+            1.3032881581986483e-07
+          ]
+        ]
+      },
+      "axis_y": {
+        "K_m_per_s_per_unit": 1.0006781192619367,
+        "tau_s": 0.0029694626187063574,
+        "rmse_m_per_s": 0.017978572412547925,
+        "r_squared": 0.9508071463858168,
+        "cov": [
+          [
+            5.1217258338351926e-05,
+            5.099813517153314e-07
+          ],
+          [
+            5.099813517153314e-07,
+            1.4058773880676274e-07
+          ]
+        ]
+      },
+      "axis_z": {
+        "K_m_per_s_per_unit": 0.999159747866304,
+        "tau_s": 0.0015982084759205747,
+        "rmse_m_per_s": 0.02650720141840712,
+        "r_squared": 0.8929694710195506,
+        "cov": [
+          [
+            0.00010899432033013674,
+            9.679710283833068e-07
+          ],
+          [
+            9.679710283833068e-07,
+            3.5315052048468717e-07
+          ]
+        ]
+      }
+    },
+    "notes": [
+      "Fit jointly over all step magnitudes per axis.",
+      "v(t) is the velocity response in m/s, u_step is the action magnitude.",
+      "K has units m/s per unit-action; tau in seconds."
+    ]
+  },
+  "tau_c_grid_s": [
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "imc_results": [
+    {
+      "tau_c_s": 0.005,
+      "gains": {
+        "x": {
+          "kp": 114.3317803963736,
+          "ki": 3269.401768956682,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 125.39394286466867,
+          "ki": 3933.575852728676,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 151.68374300441374,
+          "ki": 5747.156351529609,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      },
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0,
+        "max_final_err_mm": 0.00020519593531294697,
+        "median_settle_step": 76.0
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 71,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 89,
+          "final_err_mm": 0.00020519593531294697
+        },
+        {
+          "settled": true,
+          "settle_step": 86,
+          "final_err_mm": 1.962615573354719e-14
+        },
+        {
+          "settled": true,
+          "settle_step": 57,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 71,
+          "final_err_mm": 0.0
+        }
+      ]
+    },
+    {
+      "tau_c_s": 0.01,
+      "gains": {
+        "x": {
+          "kp": 72.73408306256486,
+          "ki": 1323.153703458222,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 77.0519465340697,
+          "ki": 1485.2571151046516,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 86.29272019286083,
+          "ki": 1860.0441691493995,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      },
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0,
+        "max_final_err_mm": 0.00015203199512291908,
+        "median_settle_step": 71.0
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 69,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 72,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 79,
+          "final_err_mm": 0.00015203199512291908
+        },
+        {
+          "settled": true,
+          "settle_step": 77,
+          "final_err_mm": 1.962615573354719e-14
+        },
+        {
+          "settled": true,
+          "settle_step": 56,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 70,
+          "final_err_mm": 0.0
+        }
+      ]
+    },
+    {
+      "tau_c_s": 0.02,
+      "gains": {
+        "x": {
+          "kp": 42.09961089833216,
+          "ki": 443.2926435192022,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 43.50656159706273,
+          "ki": 473.5261150780138,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 46.33907297759901,
+          "ki": 536.3763507198009,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      },
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0,
+        "max_final_err_mm": 0.00034779367855583895,
+        "median_settle_step": 95.0
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 86,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 104,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 113,
+          "final_err_mm": 0.00034779367855583895
+        },
+        {
+          "settled": true,
+          "settle_step": 109,
+          "final_err_mm": 1.962615573354719e-14
+        },
+        {
+          "settled": true,
+          "settle_step": 76,
+          "final_err_mm": 0.0
+        },
+        {
+          "settled": true,
+          "settle_step": 86,
+          "final_err_mm": 0.0
+        }
+      ]
+    },
+    {
+      "tau_c_s": 0.05,
+      "gains": {
+        "x": {
+          "kp": 18.598901248212417,
+          "ki": 86.518491247862,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 18.866008656075426,
+          "ki": 89.04191076979525,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 19.396816058413055,
+          "ki": 93.98008492613168,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      },
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 3.739401427784225e-08,
+        "max_final_err_mm": 0.00026443175779179766,
+        "median_settle_step": 186.5
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 178,
+          "final_err_mm": 2.7448475288570554e-08
+        },
+        {
+          "settled": true,
+          "settle_step": 193,
+          "final_err_mm": 4.525937917405774e-08
+        },
+        {
+          "settled": true,
+          "settle_step": 206,
+          "final_err_mm": 0.00026443175779179766
+        },
+        {
+          "settled": true,
+          "settle_step": 199,
+          "final_err_mm": 5.5964938587503824e-08
+        },
+        {
+          "settled": true,
+          "settle_step": 165,
+          "final_err_mm": 1.7341690555917386e-08
+        },
+        {
+          "settled": true,
+          "settle_step": 180,
+          "final_err_mm": 2.952864938162675e-08
+        }
+      ]
+    },
+    {
+      "tau_c_s": 0.1,
+      "gains": {
+        "x": {
+          "kp": 9.634932636621494,
+          "ki": 23.218369885632086,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 9.705035986957087,
+          "ki": 23.56289850442024,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 9.85097054135838,
+          "ki": 24.24002029448463,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      },
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.002192001520066658,
+        "max_final_err_mm": 0.0033098955162941123,
+        "median_settle_step": 357.0
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 347,
+          "final_err_mm": 0.001805923002960953
+        },
+        {
+          "settled": true,
+          "settle_step": 363,
+          "final_err_mm": 0.0024261183373498842
+        },
+        {
+          "settled": true,
+          "settle_step": 382,
+          "final_err_mm": 0.0033098955162941123
+        },
+        {
+          "settled": true,
+          "settle_step": 374,
+          "final_err_mm": 0.00289472937497055
+        },
+        {
+          "settled": true,
+          "settle_step": 315,
+          "final_err_mm": 0.0010358969285120924
+        },
+        {
+          "settled": true,
+          "settle_step": 351,
+          "final_err_mm": 0.001957884702783432
+        }
+      ]
+    }
+  ],
+  "empirical_gains": {
+    "x": {
+      "kp": 75.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 10.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "y": {
+      "kp": 75.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 10.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "z": {
+      "kp": 52.5,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 7.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    }
+  },
+  "empirical_score": {
+    "success_rate": 1.0,
+    "median_final_err_mm": 0.001967464476601553,
+    "max_final_err_mm": 0.0027542599743211717,
+    "median_settle_step": 62.5
+  },
+  "n_targets": 6,
+  "seed": 20260522,
+  "notes": [
+    "SIMC PI: Kp = 1/(K*(tau+tau_c)), Ti = 4*(tau+tau_c), Ki = Kp/Ti.",
+    "Plant K and tau are per-axis from sysid.py.",
+    "Empirical gains are the result of Optuna/grid search (gains.json)."
+  ]
+}

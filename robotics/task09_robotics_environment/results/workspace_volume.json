@@ -1,0 +1,8 @@
+{
+  "joint_limit_volume_m3": 0.0292096534424819,
+  "practical_volume_m3": 0.020506504429939412,
+  "monte_carlo_volume_m3": 0.022637481417923475,
+  "monte_carlo_fraction_reachable": 0.775,
+  "n_samples": 200,
+  "geometric_vs_mc_relative_error": 0.10391712518652592
+}

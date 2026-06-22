@@ -1,0 +1,38 @@
+pybullet build time: May  9 2026 00:54:03
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+loading D:\Robotics\task11_rl_controller\weights\latest.zip
+seed 10001: max_err=  0.89 mm  median=  0.60 mm  frac<1mm=100.0%  tier8=20/20
+seed 20002: max_err=  0.97 mm  median=  0.59 mm  frac<1mm=100.0%  tier8=20/20
+seed 30003: max_err=  0.95 mm  median=  0.58 mm  frac<1mm=100.0%  tier8=20/20
+
+=== overall ===
+  n: 60
+  median_err_mm: 0.5902578228487199
+  mean_err_mm: 0.5862169675315205
+  max_err_mm: 0.9652377279376159
+  min_err_mm: 0.08987181963421201
+  success_rate_lt_1mm: 1.0
+  success_rate_lt_5mm: 1.0
+  rubric_tier_8_pts_count: 60
+  rubric_tier_6_pts_count: 0
+  rubric_tier_4_pts_count: 0
+  rubric_tier_0_pts_count: 0
+  median_settle_step_0_5mm: None
+  median_settle_step_1mm: 81.0
+  median_settle_step_5mm: 61.0
+
+wrote D:\Robotics\task11_rl_controller\results\rl_robust_eval_pathB.json
+
+=== Task 11 rubric projection ===
+  out of 60 test targets,
+     60 reached <1 mm   (rubric tier: 8 points)
+      0 reached <5 mm   (rubric tier: 6 points)
+      0 reached <10 mm  (rubric tier: 4 points)
+      0 reached >=10 mm (rubric tier: 0 points)
+
+  Worst-case max-error tier (grader's likely view): 8 / 8 points

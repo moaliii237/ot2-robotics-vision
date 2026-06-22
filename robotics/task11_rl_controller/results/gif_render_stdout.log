@@ -1,0 +1,21 @@
+pybullet build time: May  9 2026 00:54:03
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+loaded D:\Robotics\task11_rl_controller\weights\latest.zip
+
+writing D:/Robotics/task11_rl_controller/rl_demo.gif (73 frames)
+wrote D:\Robotics\task11_rl_controller\results\rl_eval_log.json
+
+=== summary ===
+  T0: target=[0.22814644415276142, 0.1185517360282429, 0.2742836872604528]  err=  0.51 mm  settle_step=106  [OK]
+  T1: target=[0.11058843706178073, -0.11585471692004393, 0.2300102819804279]  err=  0.53 mm  settle_step=88  [OK]
+  T2: target=[-0.048616739754836824, -0.05592160618364775, 0.20695342451498544]  err=  0.16 mm  settle_step=72  [OK]
+  T3: target=[0.13233908426382085, -0.028834103584956777, 0.24660061470259415]  err=  0.62 mm  settle_step=75  [OK]
+  T4: target=[0.15699311193241217, 0.154223106023357, 0.20912662327365833]  err=  0.54 mm  settle_step=91  [OK]
+
+  success rate (<1.0 mm, held 20 steps): 100%
+  mean final error: 0.472 mm

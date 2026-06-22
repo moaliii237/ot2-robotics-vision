@@ -1,0 +1,45 @@
+{
+  "seeds": [
+    10001,
+    20002,
+    30003
+  ],
+  "n_targets_per_seed": 10,
+  "per_seed": [
+    {
+      "seed": 10001,
+      "n_targets": 10,
+      "success_rate": 1.0,
+      "median_final_err_mm": 0.0015622430055989354,
+      "mean_final_err_mm": 0.001455684722772948,
+      "max_final_err_mm": 0.00229658343853514,
+      "median_settle_step": 61.0
+    },
+    {
+      "seed": 20002,
+      "n_targets": 10,
+      "success_rate": 1.0,
+      "median_final_err_mm": 0.0017058839311284548,
+      "mean_final_err_mm": 0.001451474191576345,
+      "max_final_err_mm": 0.0021237101072735247,
+      "median_settle_step": 75.0
+    },
+    {
+      "seed": 30003,
+      "n_targets": 10,
+      "success_rate": 1.0,
+      "median_final_err_mm": 0.00165154312316087,
+      "mean_final_err_mm": 0.0015260758187797064,
+      "max_final_err_mm": 0.0026936381026047996,
+      "median_settle_step": 64.5
+    }
+  ],
+  "overall": {
+    "total_targets": 30,
+    "success_rate": 1.0,
+    "median_final_err_mm": 0.0016240868809583439,
+    "mean_final_err_mm": 0.0014777449110429997,
+    "max_final_err_mm": 0.0026936381026047996,
+    "median_settle_step": 65.0
+  }
+}

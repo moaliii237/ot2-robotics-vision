@@ -1,0 +1,49 @@
+pybullet build time: May  9 2026 00:54:03
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+D:\Robotics\.venv\lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at most 16 arguments, got 18
+  warnings.warn(
+
+running PID SIMC (Task 10 v3)...
+  T 0  err= 0.000000 mm  settle=61
+  T 1  err= 0.000000 mm  settle=82
+  T 2  err= 0.000014 mm  settle=38
+  T 3  err= 0.000000 mm  settle=69
+  T 4  err= 0.000005 mm  settle=69
+  T 5  err= 0.000000 mm  settle=56
+  T 6  err= 0.000000 mm  settle=35
+  T 7  err= 0.000025 mm  settle=58
+  T 8  err= 0.000000 mm  settle=37
+  T 9  err= 0.000000 mm  settle=68
+  T10  err= 0.000031 mm  settle=56
+  T11  err= 0.000000 mm  settle=67
+  T12  err= 0.000000 mm  settle=75
+  T13  err= 0.000000 mm  settle=69
+  T14  err= 0.000000 mm  settle=64
+
+running RL...
+  T 0  err= 0.5820 mm  settle=80
+  T 1  err= 0.4234 mm  settle=85
+  T 2  err= 0.7182 mm  settle=60
+  T 3  err= 0.7327 mm  settle=81
+  T 4  err= 0.5715 mm  settle=81
+  T 5  err= 0.5861 mm  settle=74
+  T 6  err= 0.6577 mm  settle=55
+  T 7  err= 0.4546 mm  settle=64
+  T 8  err= 0.5849 mm  settle=43
+  T 9  err= 0.6447 mm  settle=73
+  T10  err= 0.5847 mm  settle=77
+  T11  err= 0.5720 mm  settle=80
+  T12  err= 0.8681 mm  settle=91
+  T13  err= 0.5394 mm  settle=78
+  T14  err= 0.9731 mm  settle=261
+
+=== summary ===
+controller    median err      mean err       max err   success<1mm   med settle   effort/step
+PID SIMC        0.000000      0.000005      0.000031        100.0%           64        0.1059
+RL PPO          0.584886      0.632858      0.973138        100.0%           78        0.7995
+
+wrote D:\Robotics\task11_rl_controller\results\pid_vs_rl.png
+wrote D:\Robotics\task11_rl_controller\results\pid_vs_rl.json

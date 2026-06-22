@@ -1,0 +1,97 @@
+{
+  "model": "D:\\Robotics\\task11_rl_controller\\weights\\latest.zip",
+  "args": {
+    "model": "D:/Robotics/task11_rl_controller/weights/latest.zip",
+    "gif": "D:/Robotics/task11_rl_controller/rl_demo.gif",
+    "log": "D:\\Robotics\\task11_rl_controller\\results\\rl_eval_log.json",
+    "n_targets": 5,
+    "max_steps": 400,
+    "success_threshold_mm": 1.0,
+    "dwell_steps": 20,
+    "seed": 20260601,
+    "deterministic": true,
+    "frame_every": 8
+  },
+  "results": [
+    {
+      "target": [
+        0.22814644415276142,
+        0.1185517360282429,
+        0.2742836872604528
+      ],
+      "final_pos": [
+        0.2285536095080024,
+        0.11832678509044281,
+        0.2740793897405359
+      ],
+      "final_err_mm": 0.5080590788184586,
+      "ep_reward": 527.0164940577116,
+      "settled_step": 106,
+      "settled": true
+    },
+    {
+      "target": [
+        0.11058843706178073,
+        -0.11585471692004393,
+        0.2300102819804279
+      ],
+      "final_pos": [
+        0.11109513304930696,
+        -0.11587170754947629,
+        0.23016857631440457
+      ],
+      "final_err_mm": 0.5311182556011511,
+      "ep_reward": 520.1195682222552,
+      "settled_step": 88,
+      "settled": true
+    },
+    {
+      "target": [
+        -0.048616739754836824,
+        -0.05592160618364775,
+        0.20695342451498544
+      ],
+      "final_pos": [
+        -0.04852362396093285,
+        -0.05589219388698716,
+        0.20707397739779593
+      ],
+      "final_err_mm": 0.1551406839714757,
+      "ep_reward": 539.6672348899133,
+      "settled_step": 72,
+      "settled": true
+    },
+    {
+      "target": [
+        0.13233908426382085,
+        -0.028834103584956777,
+        0.24660061470259415
+      ],
+      "final_pos": [
+        0.1328931157873075,
+        -0.02890160988876897,
+        0.2468739970353127
+      ],
+      "final_err_mm": 0.6214868702667575,
+      "ep_reward": 517.9087508142565,
+      "settled_step": 75,
+      "settled": true
+    },
+    {
+      "target": [
+        0.15699311193241217,
+        0.154223106023357,
+        0.20912662327365833
+      ],
+      "final_pos": [
+        0.157435058719951,
+        0.1540827175191501,
+        0.20884426041307785
+      ],
+      "final_err_mm": 0.5429131423759644,
+      "ep_reward": 526.7286878311577,
+      "settled_step": 91,
+      "settled": true
+    }
+  ]
+}

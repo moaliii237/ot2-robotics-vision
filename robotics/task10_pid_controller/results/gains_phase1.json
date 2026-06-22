@@ -1,0 +1,72 @@
+{
+  "search": {
+    "kp_xy_grid": [
+      25.0,
+      35.0,
+      45.0
+    ],
+    "ki_xy_grid": [
+      0.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "kd_xy_grid": [
+      0.0,
+      0.5
+    ],
+    "z_scale": {
+      "kp": 0.7,
+      "ki": 0.75,
+      "kd": 0.75
+    },
+    "n_targets": 6,
+    "max_steps": 700,
+    "settle_threshold_m_scoring": 0.001,
+    "settle_hold_steps": 15,
+    "seed": 20260521
+  },
+  "best_score": {
+    "n_targets": 6,
+    "success_rate": 1.0,
+    "median_final_err_mm": 0.0031059641721564147,
+    "max_final_err_mm": 0.00848928281440124,
+    "median_settle_step": 59.0,
+    "mean_settle_step": 60.166666666666664
+  },
+  "pid": {
+    "x": {
+      "kp": 45.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 0.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "y": {
+      "kp": 45.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 0.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "z": {
+      "kp": 31.499999999999996,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 0.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    }
+  }
+}

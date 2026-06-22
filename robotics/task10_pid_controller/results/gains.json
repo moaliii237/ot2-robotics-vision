@@ -1,0 +1,65 @@
+{
+  "phase2_search": {
+    "kp_grid": [
+      45.0,
+      55.0,
+      65.0,
+      75.0
+    ],
+    "kff_grid": [
+      0.0,
+      5.0,
+      10.0
+    ],
+    "z_scale": {
+      "kp": 0.7,
+      "kff": 0.7
+    },
+    "n_targets": 8,
+    "max_steps": 700,
+    "seed": 20260521
+  },
+  "phase2_best_score": {
+    "n_targets": 8,
+    "success_rate": 1.0,
+    "median_final_err_mm": 0.0018350784490167398,
+    "max_final_err_mm": 0.004494340975014948,
+    "median_settle_step": 64.0,
+    "mean_settle_step": 64.5
+  },
+  "pid": {
+    "x": {
+      "kp": 75.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 10.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "y": {
+      "kp": 75.0,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 10.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    },
+    "z": {
+      "kp": 52.5,
+      "ki": 0.0,
+      "kd": 0.0,
+      "kff": 7.0,
+      "out_min": -1.0,
+      "out_max": 1.0,
+      "settle_threshold": 0.0,
+      "min_output": 0.0,
+      "sat_policy": "conditional"
+    }
+  }
+}

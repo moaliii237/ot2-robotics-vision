@@ -1,0 +1,392 @@
+{
+  "weights": "D:\\Robotics\\task12_13_integration_benchmarking\\cv\\weights\\unet_256px.keras",
+  "args": {
+    "weights": "D:\\Robotics\\task12_13_integration_benchmarking\\cv\\weights\\unet_256px.keras",
+    "images": [
+      "task12_13_integration_benchmarking/cv/samples/test_image_01.png",
+      "task12_13_integration_benchmarking/cv/samples/test_image_09.png",
+      "task12_13_integration_benchmarking/cv/samples/test_image_17.png"
+    ],
+    "out_json": "task12_13_integration_benchmarking/results/cv_detections.json",
+    "n_plants": 5,
+    "min_area": 200,
+    "threshold": 0.5
+  },
+  "results": [
+    {
+      "image_path": "task12_13_integration_benchmarking/cv/samples/test_image_01.png",
+      "image_shape": [
+        3006,
+        4202
+      ],
+      "n_detected": 5,
+      "plants": [
+        {
+          "plant_index": 0,
+          "bbox": [
+            584,
+            1034,
+            1122,
+            1353
+          ],
+          "centroid": [
+            839.5479223403321,
+            1173.566810155495
+          ],
+          "shoot_base": [
+            584,
+            1123
+          ],
+          "tip": [
+            1007,
+            1350
+          ],
+          "length_px": 856.9919907732892,
+          "mask_area_px": 11383
+        },
+        {
+          "plant_index": 1,
+          "bbox": [
+            542,
+            1513,
+            1587,
+            1770
+          ],
+          "centroid": [
+            960.9711435149654,
+            1652.137989255564
+          ],
+          "shoot_base": [
+            545,
+            1639
+          ],
+          "tip": [
+            965,
+            1540
+          ],
+          "length_px": 1494.9869401394071,
+          "mask_area_px": 13030
+        },
+        {
+          "plant_index": 2,
+          "bbox": [
+            672,
+            2469,
+            1091,
+            2606
+          ],
+          "centroid": [
+            875.7335473515249,
+            2533.525280898876
+          ],
+          "shoot_base": [
+            672,
+            2604
+          ],
+          "tip": [
+            672,
+            2604
+          ],
+          "length_px": 472.57568516986123,
+          "mask_area_px": 2492
+        },
+        {
+          "plant_index": 3,
+          "bbox": [
+            568,
+            2550,
+            1836,
+            2869
+          ],
+          "centroid": [
+            1020.1866814891137,
+            2695.0983162061766
+          ],
+          "shoot_base": [
+            569,
+            2651
+          ],
+          "tip": [
+            1463,
+            2795
+          ],
+          "length_px": 1850.974746830587,
+          "mask_area_px": 36881
+        },
+        {
+          "plant_index": 4,
+          "bbox": [
+            542,
+            3090,
+            1837,
+            3383
+          ],
+          "centroid": [
+            1009.3507222587,
+            3213.7676953381483
+          ],
+          "shoot_base": [
+            542,
+            3180
+          ],
+          "tip": [
+            616,
+            3106
+          ],
+          "length_px": 1622.5727265770338,
+          "mask_area_px": 30460
+        }
+      ]
+    },
+    {
+      "image_path": "task12_13_integration_benchmarking/cv/samples/test_image_09.png",
+      "image_shape": [
+        3006,
+        4202
+      ],
+      "n_detected": 5,
+      "plants": [
+        {
+          "plant_index": 0,
+          "bbox": [
+            572,
+            1018,
+            1145,
+            1215
+          ],
+          "centroid": [
+            821.1520372526194,
+            1086.431664726426
+          ],
+          "shoot_base": [
+            573,
+            1125
+          ],
+          "tip": [
+            719,
+            1212
+          ],
+          "length_px": 781.71277015971,
+          "mask_area_px": 4295
+        },
+        {
+          "plant_index": 1,
+          "bbox": [
+            569,
+            1557,
+            1201,
+            1671
+          ],
+          "centroid": [
+            847.5100115074798,
+            1596.4747986191023
+          ],
+          "shoot_base": [
+            572,
+            1623
+          ],
+          "tip": [
+            614,
+            1669
+          ],
+          "length_px": 748.2447327281741,
+          "mask_area_px": 4345
+        },
+        {
+          "plant_index": 2,
+          "bbox": [
+            515,
+            2006,
+            1273,
+            2229
+          ],
+          "centroid": [
+            817.1098901098901,
+            2121.8977443609024
+          ],
+          "shoot_base": [
+            518,
+            2140
+          ],
+          "tip": [
+            631,
+            2043
+          ],
+          "length_px": 906.0437226013976,
+          "mask_area_px": 8645
+        },
+        {
+          "plant_index": 3,
+          "bbox": [
+            512,
+            2568,
+            1242,
+            2742
+          ],
+          "centroid": [
+            772.8899513058875,
+            2650.052855245684
+          ],
+          "shoot_base": [
+            514,
+            2653
+          ],
+          "tip": [
+            851,
+            2570
+          ],
+          "length_px": 1036.5950211536187,
+          "mask_area_px": 11295
+        },
+        {
+          "plant_index": 4,
+          "bbox": [
+            512,
+            3053,
+            1195,
+            3275
+          ],
+          "centroid": [
+            743.780895334174,
+            3146.390605296343
+          ],
+          "shoot_base": [
+            514,
+            3190
+          ],
+          "tip": [
+            669,
+            3271
+          ],
+          "length_px": 904.3696244092021,
+          "mask_area_px": 9516
+        }
+      ]
+    },
+    {
+      "image_path": "task12_13_integration_benchmarking/cv/samples/test_image_17.png",
+      "image_shape": [
+        3006,
+        4202
+      ],
+      "n_detected": 5,
+      "plants": [
+        {
+          "plant_index": 0,
+          "bbox": [
+            673,
+            875,
+            1717,
+            1257
+          ],
+          "centroid": [
+            1204.6846984342321,
+            1051.900118704426
+          ],
+          "shoot_base": [
+            676,
+            1127
+          ],
+          "tip": [
+            1444,
+            1255
+          ],
+          "length_px": 1241.3056992722745,
+          "mask_area_px": 17691
+        },
+        {
+          "plant_index": 1,
+          "bbox": [
+            683,
+            1330,
+            2198,
+            1763
+          ],
+          "centroid": [
+            1341.2266248574686,
+            1543.76746009122
+          ],
+          "shoot_base": [
+            686,
+            1608
+          ],
+          "tip": [
+            1040,
+            1571
+          ],
+          "length_px": 1799.8569978244961,
+          "mask_area_px": 14032
+        },
+        {
+          "plant_index": 2,
+          "bbox": [
+            680,
+            2035,
+            2030,
+            2258
+          ],
+          "centroid": [
+            1344.3767377201111,
+            2115.244979919679
+          ],
+          "shoot_base": [
+            682,
+            2112
+          ],
+          "tip": [
+            884,
+            2203
+          ],
+          "length_px": 1668.6660889654847,
+          "mask_area_px": 12948
+        },
+        {
+          "plant_index": 3,
+          "bbox": [
+            608,
+            2638,
+            1837,
+            2762
+          ],
+          "centroid": [
+            1163.0428314337132,
+            2690.0237552489502
+          ],
+          "shoot_base": [
+            609,
+            2656
+          ],
+          "tip": [
+            876,
+            2689
+          ],
+          "length_px": 1338.5290039756362,
+          "mask_area_px": 8335
+        },
+        {
+          "plant_index": 4,
+          "bbox": [
+            640,
+            3149,
+            1689,
+            3376
+          ],
+          "centroid": [
+            1141.1632854047666,
+            3214.7444685181536
+          ],
+          "shoot_base": [
+            643,
+            3184
+          ],
+          "tip": [
+            1059,
+            3374
+          ],
+          "length_px": 1291.5777772109166,
+          "mask_area_px": 15231
+        }
+      ]
+    }
+  ]
+}

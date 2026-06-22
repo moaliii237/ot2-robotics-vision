@@ -1,0 +1,709 @@
+{
+  "n_targets": 10,
+  "seed": 20260524,
+  "settle_threshold_m": 0.001,
+  "results": {
+    "P_only": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.001998595834780934,
+        "max_final_err_mm": 0.0026212613744022437,
+        "mean_final_err_mm": 0.001839578744091313,
+        "median_settle_step": 69.0,
+        "mean_control_effort_per_step": 0.12698359656117325
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 67,
+          "final_err_mm": 0.0026212613744022437,
+          "control_effort": 95.64240266896351,
+          "control_effort_per_step": 0.13663200381280502
+        },
+        {
+          "settled": true,
+          "settle_step": 71,
+          "final_err_mm": 0.001970473529013724,
+          "control_effort": 67.90961416266246,
+          "control_effort_per_step": 0.09701373451808923
+        },
+        {
+          "settled": true,
+          "settle_step": 83,
+          "final_err_mm": 0.0024262567377460326,
+          "control_effort": 111.3888754458733,
+          "control_effort_per_step": 0.15912696492267614
+        },
+        {
+          "settled": true,
+          "settle_step": 53,
+          "final_err_mm": 0.002026718140548144,
+          "control_effort": 60.55946488628676,
+          "control_effort_per_step": 0.08651352126612394
+        },
+        {
+          "settled": true,
+          "settle_step": 46,
+          "final_err_mm": 0.0005552521509168901,
+          "control_effort": 54.961815931654456,
+          "control_effort_per_step": 0.07851687990236351
+        },
+        {
+          "settled": true,
+          "settle_step": 65,
+          "final_err_mm": 0.0012661286751771267,
+          "control_effort": 69.2829207531523,
+          "control_effort_per_step": 0.09897560107593185
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.002393492614861542,
+          "control_effort": 108.50716753911975,
+          "control_effort_per_step": 0.15501023934159963
+        },
+        {
+          "settled": true,
+          "settle_step": 51,
+          "final_err_mm": 0.0024813372012221025,
+          "control_effort": 52.55658814628111,
+          "control_effort_per_step": 0.07508084020897302
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.001534767190147138,
+          "control_effort": 147.30903105216893,
+          "control_effort_per_step": 0.2104414729316699
+        },
+        {
+          "settled": true,
+          "settle_step": 76,
+          "final_err_mm": 0.0011200998268781866,
+          "control_effort": 120.76729534205023,
+          "control_effort_per_step": 0.17252470763150032
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 75.0,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 75.0,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 52.5,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      }
+    },
+    "P_ff_v2winner": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0017634686651510833,
+        "max_final_err_mm": 0.0023128806351777414,
+        "mean_final_err_mm": 0.001614163463610312,
+        "median_settle_step": 70.5,
+        "mean_control_effort_per_step": 0.13105939802585273
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 67,
+          "final_err_mm": 0.0023128806351777414,
+          "control_effort": 99.15563971372089,
+          "control_effort_per_step": 0.14165091387674414
+        },
+        {
+          "settled": true,
+          "settle_step": 74,
+          "final_err_mm": 0.0017386539256240491,
+          "control_effort": 70.43392102584055,
+          "control_effort_per_step": 0.10061988717977222
+        },
+        {
+          "settled": true,
+          "settle_step": 85,
+          "final_err_mm": 0.0021408100900085756,
+          "control_effort": 115.3548715825059,
+          "control_effort_per_step": 0.16479267368929412
+        },
+        {
+          "settled": true,
+          "settle_step": 52,
+          "final_err_mm": 0.0017882834046781175,
+          "control_effort": 62.883047728911336,
+          "control_effort_per_step": 0.0898329253270162
+        },
+        {
+          "settled": true,
+          "settle_step": 45,
+          "final_err_mm": 0.0004899282232617893,
+          "control_effort": 57.08484636196636,
+          "control_effort_per_step": 0.0815497805170948
+        },
+        {
+          "settled": true,
+          "settle_step": 67,
+          "final_err_mm": 0.0011171715120509285,
+          "control_effort": 71.93920217848654,
+          "control_effort_per_step": 0.10277028882640935
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.0021119040046497393,
+          "control_effort": 110.51196140402745,
+          "control_effort_per_step": 0.15787423057718206
+        },
+        {
+          "settled": true,
+          "settle_step": 49,
+          "final_err_mm": 0.0021894004628666684,
+          "control_effort": 54.3942232403298,
+          "control_effort_per_step": 0.07770603320047115
+        },
+        {
+          "settled": true,
+          "settle_step": 84,
+          "final_err_mm": 0.0012642796016642487,
+          "control_effort": 151.86362190818522,
+          "control_effort_per_step": 0.21694803129740747
+        },
+        {
+          "settled": true,
+          "settle_step": 77,
+          "final_err_mm": 0.0009883227761212623,
+          "control_effort": 123.7944510369951,
+          "control_effort_per_step": 0.17684921576713586
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 75.0,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 10.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 75.0,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 10.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 52.5,
+          "ki": 0.0,
+          "kd": 0.0,
+          "kff": 7.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      }
+    },
+    "PI_v1": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.4743229081914858,
+        "max_final_err_mm": 0.647427172544634,
+        "mean_final_err_mm": 0.4802913338895754,
+        "median_settle_step": 72.5,
+        "mean_control_effort_per_step": 0.12216567912004997
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 70,
+          "final_err_mm": 0.5891751934859468,
+          "control_effort": 91.57365932307586,
+          "control_effort_per_step": 0.1308195133186798
+        },
+        {
+          "settled": true,
+          "settle_step": 75,
+          "final_err_mm": 0.4041248926487396,
+          "control_effort": 67.43340448981456,
+          "control_effort_per_step": 0.09633343498544937
+        },
+        {
+          "settled": true,
+          "settle_step": 86,
+          "final_err_mm": 0.647427172544634,
+          "control_effort": 107.97520137305348,
+          "control_effort_per_step": 0.1542502876757907
+        },
+        {
+          "settled": true,
+          "settle_step": 63,
+          "final_err_mm": 0.46476514147034936,
+          "control_effort": 55.8684521976075,
+          "control_effort_per_step": 0.07981207456801072
+        },
+        {
+          "settled": true,
+          "settle_step": 49,
+          "final_err_mm": 0.5889824190393645,
+          "control_effort": 50.23872532110558,
+          "control_effort_per_step": 0.07176960760157941
+        },
+        {
+          "settled": true,
+          "settle_step": 65,
+          "final_err_mm": 0.36100241682385176,
+          "control_effort": 66.47317757263588,
+          "control_effort_per_step": 0.09496168224662269
+        },
+        {
+          "settled": true,
+          "settle_step": 83,
+          "final_err_mm": 0.2742274127210458,
+          "control_effort": 103.88460171758659,
+          "control_effort_per_step": 0.14840657388226655
+        },
+        {
+          "settled": true,
+          "settle_step": 61,
+          "final_err_mm": 0.568106595120471,
+          "control_effort": 50.244122920764866,
+          "control_effort_per_step": 0.07177731845823553
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.4838806749126223,
+          "control_effort": 144.0940026877317,
+          "control_effort_per_step": 0.20584857526818812
+        },
+        {
+          "settled": true,
+          "settle_step": 79,
+          "final_err_mm": 0.42122142012872865,
+          "control_effort": 117.37440623697377,
+          "control_effort_per_step": 0.1676777231956768
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 35.0,
+          "ki": 4.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0005,
+          "min_output": 0.12,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 35.0,
+          "ki": 4.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0005,
+          "min_output": 0.12,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 24.5,
+          "ki": 3.0,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0005,
+          "min_output": 0.12,
+          "sat_policy": "conditional"
+        }
+      }
+    },
+    "SIMC_tauc_5ms": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0,
+        "max_final_err_mm": 0.0002679755234054612,
+        "mean_final_err_mm": 2.6797552346097236e-05,
+        "median_settle_step": 82.0,
+        "mean_control_effort_per_step": 0.15778944044944673
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 76,
+          "final_err_mm": 0.0,
+          "control_effort": 118.02463656428611,
+          "control_effort_per_step": 0.16860662366326587
+        },
+        {
+          "settled": true,
+          "settle_step": 82,
+          "final_err_mm": 1.3877787807814457e-14,
+          "control_effort": 80.42528221861414,
+          "control_effort_per_step": 0.11489326031230591
+        },
+        {
+          "settled": true,
+          "settle_step": 99,
+          "final_err_mm": 0.0,
+          "control_effort": 137.20346051477276,
+          "control_effort_per_step": 0.1960049435925325
+        },
+        {
+          "settled": true,
+          "settle_step": 67,
+          "final_err_mm": 2.7755575615628914e-14,
+          "control_effort": 83.93791726181243,
+          "control_effort_per_step": 0.11991131037401775
+        },
+        {
+          "settled": true,
+          "settle_step": 56,
+          "final_err_mm": 0.0,
+          "control_effort": 77.76248143598808,
+          "control_effort_per_step": 0.11108925919426868
+        },
+        {
+          "settled": true,
+          "settle_step": 82,
+          "final_err_mm": 0.0,
+          "control_effort": 83.42359926910137,
+          "control_effort_per_step": 0.11917657038443054
+        },
+        {
+          "settled": true,
+          "settle_step": 90,
+          "final_err_mm": 0.0,
+          "control_effort": 130.11013869096573,
+          "control_effort_per_step": 0.1858716267013796
+        },
+        {
+          "settled": true,
+          "settle_step": 51,
+          "final_err_mm": 0.0,
+          "control_effort": 75.33459840736744,
+          "control_effort_per_step": 0.10762085486766777
+        },
+        {
+          "settled": true,
+          "settle_step": 102,
+          "final_err_mm": 0.0002679755234054612,
+          "control_effort": 173.80451662217135,
+          "control_effort_per_step": 0.24829216660310194
+        },
+        {
+          "settled": true,
+          "settle_step": 87,
+          "final_err_mm": 1.3877787807814457e-14,
+          "control_effort": 144.4994521610477,
+          "control_effort_per_step": 0.20642778880149673
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 114.3317803963736,
+          "ki": 3269.401768956682,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 125.39394286466867,
+          "ki": 3933.575852728676,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 151.68374300441374,
+          "ki": 5747.156351529609,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      }
+    },
+    "SIMC_tauc_10ms": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 0.0,
+        "max_final_err_mm": 0.0001745360667079535,
+        "mean_final_err_mm": 1.7453606673570908e-05,
+        "median_settle_step": 70.5,
+        "mean_control_effort_per_step": 0.13065045983720883
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 68,
+          "final_err_mm": 0.0,
+          "control_effort": 97.32552035401935,
+          "control_effort_per_step": 0.13903645764859907
+        },
+        {
+          "settled": true,
+          "settle_step": 73,
+          "final_err_mm": 1.3877787807814457e-14,
+          "control_effort": 70.92749451103761,
+          "control_effort_per_step": 0.10132499215862516
+        },
+        {
+          "settled": true,
+          "settle_step": 85,
+          "final_err_mm": 0.0,
+          "control_effort": 113.73646529534918,
+          "control_effort_per_step": 0.1624806647076417
+        },
+        {
+          "settled": true,
+          "settle_step": 61,
+          "final_err_mm": 0.0,
+          "control_effort": 63.01277896653297,
+          "control_effort_per_step": 0.09001825566647567
+        },
+        {
+          "settled": true,
+          "settle_step": 57,
+          "final_err_mm": 0.0,
+          "control_effort": 58.2753713024362,
+          "control_effort_per_step": 0.08325053043205172
+        },
+        {
+          "settled": true,
+          "settle_step": 65,
+          "final_err_mm": 0.0,
+          "control_effort": 70.70814525947401,
+          "control_effort_per_step": 0.10101163608496287
+        },
+        {
+          "settled": true,
+          "settle_step": 81,
+          "final_err_mm": 0.0,
+          "control_effort": 111.79579576339549,
+          "control_effort_per_step": 0.15970827966199355
+        },
+        {
+          "settled": true,
+          "settle_step": 57,
+          "final_err_mm": 0.0,
+          "control_effort": 56.53525152814512,
+          "control_effort_per_step": 0.0807646450402073
+        },
+        {
+          "settled": true,
+          "settle_step": 94,
+          "final_err_mm": 0.0001745360667079535,
+          "control_effort": 150.01028654134925,
+          "control_effort_per_step": 0.21430040934478464
+        },
+        {
+          "settled": true,
+          "settle_step": 79,
+          "final_err_mm": 1.3877787807814457e-14,
+          "control_effort": 122.22610933872268,
+          "control_effort_per_step": 0.17460872762674667
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 72.73408306256486,
+          "ki": 1323.153703458222,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 77.0519465340697,
+          "ki": 1485.2571151046516,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 86.29272019286083,
+          "ki": 1860.0441691493995,
+          "kd": 0.0,
+          "kff": 0.0,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      }
+    },
+    "Optuna_best": {
+      "score": {
+        "success_rate": 1.0,
+        "median_final_err_mm": 1.1384183810855498e-05,
+        "max_final_err_mm": 0.00027986759004308475,
+        "mean_final_err_mm": 3.825976897162111e-05,
+        "median_settle_step": 71.0,
+        "mean_control_effort_per_step": 0.13129014536690137
+      },
+      "per_target": [
+        {
+          "settled": true,
+          "settle_step": 68,
+          "final_err_mm": 1.0640412594105735e-05,
+          "control_effort": 98.66209403518728,
+          "control_effort_per_step": 0.14094584862169612
+        },
+        {
+          "settled": true,
+          "settle_step": 74,
+          "final_err_mm": 8.220361756267472e-06,
+          "control_effort": 70.23730730400875,
+          "control_effort_per_step": 0.10033901043429821
+        },
+        {
+          "settled": true,
+          "settle_step": 85,
+          "final_err_mm": 1.2127955027605261e-05,
+          "control_effort": 114.92440211287338,
+          "control_effort_per_step": 0.16417771730410483
+        },
+        {
+          "settled": true,
+          "settle_step": 49,
+          "final_err_mm": 1.2689750116348939e-05,
+          "control_effort": 62.79113004429927,
+          "control_effort_per_step": 0.08970161434899897
+        },
+        {
+          "settled": true,
+          "settle_step": 50,
+          "final_err_mm": 1.4099923028945879e-05,
+          "control_effort": 59.676658818625576,
+          "control_effort_per_step": 0.08525236974089367
+        },
+        {
+          "settled": true,
+          "settle_step": 65,
+          "final_err_mm": 1.0036874929608101e-05,
+          "control_effort": 71.0698788983126,
+          "control_effort_per_step": 0.10152839842616085
+        },
+        {
+          "settled": true,
+          "settle_step": 82,
+          "final_err_mm": 1.5137446428773087e-05,
+          "control_effort": 113.12473661644621,
+          "control_effort_per_step": 0.16160676659492315
+        },
+        {
+          "settled": true,
+          "settle_step": 47,
+          "final_err_mm": 9.807283214448432e-06,
+          "control_effort": 53.33955531124047,
+          "control_effort_per_step": 0.07619936473034353
+        },
+        {
+          "settled": true,
+          "settle_step": 82,
+          "final_err_mm": 0.00027986759004308475,
+          "control_effort": 152.34257458581115,
+          "control_effort_per_step": 0.21763224940830164
+        },
+        {
+          "settled": true,
+          "settle_step": 77,
+          "final_err_mm": 9.970092577023385e-06,
+          "control_effort": 122.8626798415049,
+          "control_effort_per_step": 0.1755181140592927
+        }
+      ],
+      "gains": {
+        "x": {
+          "kp": 105.85191644330945,
+          "ki": 417.7863786743724,
+          "kd": 0.3430228744590589,
+          "kff": 2.0644535003920446,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "y": {
+          "kp": 105.85191644330945,
+          "ki": 417.7863786743724,
+          "kd": 0.3430228744590589,
+          "kff": 2.0644535003920446,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        },
+        "z": {
+          "kp": 89.97412897681303,
+          "ki": 355.1184218732165,
+          "kd": 0.2915694432902,
+          "kff": 1.754785475333238,
+          "out_min": -1.0,
+          "out_max": 1.0,
+          "settle_threshold": 0.0,
+          "min_output": 0.0,
+          "sat_policy": "conditional"
+        }
+      }
+    }
+  }
+}

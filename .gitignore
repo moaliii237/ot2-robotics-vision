@@ -1,0 +1,44 @@
+# dependencies / build
+node_modules/
+.next/
+dist/
+build/
+desktop/release/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+*.tsbuildinfo
+
+# secrets / local
+.env
+.env.*
+!.env.example
+*.pem
+.auth-secret
+.pglite-data/
+
+# data / models / heavy artifacts (keep repos light)
+*.h5
+*.keras
+*.pth
+*.ckpt
+*.pkl
+*.zip
+*.tar
+*.tar.gz
+*.bak
+*.mp3
+*.wav
+*.flac
+*.mp4
+data/raw/
+models/checkpoints/
+
+# os
+.DS_Store
+Thumbs.db
+
+# heavy coursework data (kept locally, not in portfolio repo)
+Week 1/

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ot2"
+version = "0.1.0"
+description = "BUas Year 2 Block B Robotics retake. PID + RL controllers for the Opentrons OT-2 PyBullet digital twin."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "MoAli" }]
+license = { text = "Coursework, BUas Year 2 Block B" }
+
+# These are already installed in .venv; listed here so the project is reproducible
+# from a clean venv with: pip install -e .
+dependencies = [
+    "pybullet==3.2.6",
+    "numpy==1.26.4",
+    "imageio==2.34.0",
+    "imageio-ffmpeg",
+    "pillow",
+    "gymnasium==0.29.1",
+    "stable-baselines3==2.3.2",
+    "sb3-contrib==2.3.0",
+    "simple-pid==2.0.0",
+    "matplotlib",
+    "pandas",
+    "tensorboard",
+    "wandb",
+    "clearml",
+    "pyyaml",
+    "tqdm",
+    "rich",
+]
+
+[project.optional-dependencies]
+# CUDA torch is installed separately via the pytorch index URL;
+# see README.md for the exact command.
+dev = ["ruff", "pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ot2 = ["py.typed"]
