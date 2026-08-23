@@ -72,7 +72,7 @@ I built an end-to-end computer vision pipeline that takes a directory of raw ima
 
 Evidence
 [task_8.ipynb](https://github.com/BredaUniversityADSAI/2025-26b-fai2-adsai-MohammadaliJaberi244437/blob/main/computer_vision/task_8.ipynb)
-[Root segmentation model](https://claude.ai/epitaxy/local_86a646d2-99a7-421a-a98a-6bff78113757)
+[Root segmentation model](https://github.com/moaliii237/root-segmentation-research)
 [Kaggle private leaderboard screenshot](https://github.com/BredaUniversityADSAI/2025-26b-fai2-adsai-MohammadaliJaberi244437/blob/main/computer_vision/kaggle_leaderboard_screenshot.png)
 [Presentation describing my best Kaggle submission](https://github.com/BredaUniversityADSAI/2025-26b-fai2-adsai-MohammadaliJaberi244437/blob/main/Block_B_Retake_Presentation.pdf)
 ## ILO 8.6 Robotic Control and Reinforcement Learning
