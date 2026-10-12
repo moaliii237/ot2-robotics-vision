@@ -1,6 +1,6 @@
 # ILO 8.5 Computer Vision
 
-The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Furthermore, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
+The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Also, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
 
 |pre-requisites|A: 10 points|B: 20 points|
 |--|--|--|
@@ -16,7 +16,7 @@ This ILO is linked to DataLab Tasks 5 and 8. The labeling assignment (Task 1) an
 
 This criterion is linked to DataLab Task 5. Justify why you meet this criterion.
 
-For example: “I trained a U-Net model for root segmentation, achieving an F1 score of 0.8021 on the validation set. I also developed inference code capable of processing raw images from Hades and generating the corresponding predicted masks.”
+For example: "I trained a U-Net model for root segmentation, achieving an F1 score of 0.8021 on the validation set. I also developed inference code capable of processing raw images from Hades and generating the corresponding predicted masks."
 
 ### Evidence
 
@@ -29,7 +29,7 @@ For example: “I trained a U-Net model for root segmentation, achieving an F1 s
 
 This criterion is linked to DataLab Task 8. Justify why you meet this criterion.
 
-For example: “I developed a computer vision pipeline capable of processing any number of raw images from Hades and generating the primary root lengths for each plant. My predictions were submitted to the Kaggle competition, achieving a 13% sMAPE on the private leaderboard and securing 10th place in the competition.”
+For example: "I developed a computer vision pipeline capable of processing any number of raw images from Hades and generating the primary root lengths for each plant. My predictions were submitted to the Kaggle competition, achieving a 13% sMAPE on the private leaderboard and securing 10th place in the competition."
 
 ### Evidence
 

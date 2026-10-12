@@ -273,7 +273,7 @@ After I finished the first version of Tasks 12-13, I reviewed the whole pipeline
 carefully, subsystem by subsystem, and re-checked every issue I found before fixing it.
 The controllers themselves were never in question (no confirmed bug in the PID, the RL
 policy, the teleport, or the precise-pose readout). The fixes were about **honest, fair
-measurement** and **CV robustness**:
+measurement** and **CV stability**:
 
 | # | Issue (confirmed) | Severity | Fix |
 |---|---|---|---|
@@ -314,7 +314,7 @@ view).
    plants have not landed there in the test set.
 5. **PID is "perfect" only in sim.** Sub-micron settling reflects the deterministic ideal
    first-order plant. On real hardware, encoder noise, backlash, and friction would
-   dominate. RL is more robust to those because it learned without a plant model.
+   dominate. RL is more reliable to those because it learned without a plant model.
 6. **The RL dwell hold is 10 steps (~42 ms).** It is flat overhead, not optimised. It
    could shrink, at the risk of false-positive settle calls.
 7. **Both controllers ignore obstacle avoidance.** They drive in straight lines from the
@@ -324,11 +324,11 @@ view).
 
 ## Actionable recommendations for system improvement
 
-1. **Add a shoot-mask model** for robust plant localization, especially in dishes where
+1. **Add a shoot-mask model** for reliable plant localization, especially in dishes where
    roots are short or branching is heavy. It would resolve the under-segmentation cases
    that produce <5 detections per dish today (6 of 19 dishes).
 2. **Train a second U-Net on root-tip Gaussian heatmaps** (instead of binary masks) so
-   tip extraction does not depend on a single skeleton-diameter calculation. More robust
+   tip extraction does not depend on a single skeleton-diameter calculation. More reliable
    to noisy skeletons.
 3. **Cache the dish bbox per session, not per image.** Useful when a camera/dish rig is
    fixed, so you can skip `get_dish_bbox` on later images.
@@ -341,7 +341,7 @@ view).
    converge to ~0.3 mm median given more training, half of today's median error.
 6. **Hybrid controller.** Use RL for the coarse approach (envelope-centre to within 5 mm
    of the tip) and switch to PID for the final 5 mm to 0 refinement. This keeps RL's
-   model-free robustness for the long traverse while using PID's sub-micron precision once
+   model-free stability for the long traverse while using PID's sub-micron precision once
    close.
 7. **Feed-forward PID** for tracking moving plates. My current PID is purely error-driven.
    For any task where the dish moves between targets, a velocity feed-forward term

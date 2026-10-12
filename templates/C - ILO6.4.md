@@ -14,7 +14,7 @@ This ILO is linked to DataLab Tasks 1, 2, 3.
 
 This criterion is linked to DataLab Task 1. Briefly describe your assignment results.
 
-For example: “I delivered masks with minor quality issues (2/3) and provided an accurate peer review (2/2)”.
+For example: "I delivered masks with minor quality issues (2/3) and provided an accurate peer review (2/2)".
 
 ### Evidence
 

@@ -11,7 +11,7 @@ The main challenge was dealing with dataset-related issues, particularly underst
 **How did your efforts in applying iterative critical thinking this week
 contribute to improving your approach to the project? (ILO 2.6)**
 ------------------------------
-By critically evaluating dataset characteristics and reflecting on model performance, I was able to question initial assumptions and refine my approach to feature selection and evaluation. This iterative process improved the robustness and reliability of my project methodology.
+By critically evaluating dataset characteristics and reflecting on model performance, I was able to question initial assumptions and refine my approach to feature selection and evaluation. This iterative process improved the stability and reliability of my project methodology.
 
 **Based on this, what action points can you create for next week?**
 ------------------------------

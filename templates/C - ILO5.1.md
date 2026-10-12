@@ -16,7 +16,7 @@ This ILO is linked to DataLab Task 14. Summarize what you presented with regards
 
 Justify why you meet this criterion.
 
-For example “In my presentation I explained how plant scientists struggle with X, Y, Z and how my solution provides A, B, C to …” and point to the slide numbers that are related.
+For example "In my presentation I explained how plant scientists struggle with X, Y, Z and how my solution provides A, B, C to …" and point to the slide numbers that are related.
 
 ### Evidence
 

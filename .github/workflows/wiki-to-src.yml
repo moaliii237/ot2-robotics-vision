@@ -54,16 +54,16 @@ jobs:
           
           # Determine sync safety
           if [ "$HAS_TEMPLATE_STRUCTURE" = "true" ] && [ "$WIKI_FILES" -le 2 ]; then
-            echo "🛡️  PROTECTION: wiki-src has template structure but wiki has minimal content"
+            echo " PROTECTION: wiki-src has template structure but wiki has minimal content"
             echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
           elif [ "$WIKISRC_FILES" -gt 0 ] && [ "$WIKI_FILES" -eq 0 ]; then
-            echo "🛡️  PROTECTION: wiki is empty but wiki-src has content"
+            echo " PROTECTION: wiki is empty but wiki-src has content"
             echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
           elif [ "$WIKI_FILES" -ge "$WIKISRC_FILES" ] || [ "$WIKI_FILES" -gt 5 ]; then
-            echo "✅ Wiki has substantial content - safe to sync"
+            echo "Wiki has substantial content - safe to sync"
             echo "is_safe_to_sync=true" >> $GITHUB_OUTPUT
           else
-            echo "🛡️  PROTECTION: Insufficient wiki content to safely overwrite wiki-src"
+            echo " PROTECTION: Insufficient wiki content to safely overwrite wiki-src"
             echo "is_safe_to_sync=false" >> $GITHUB_OUTPUT
           fi
 
@@ -113,24 +113,24 @@ jobs:
               corrected="$(echo "$corrected" | tr -s ' ')"
             fi
           
-            # 3) Special tidy: "B - Week-4.md" → "B - Week 4.md"
+            # 3) Special tidy: "B - Week-4.md" -> "B - Week 4.md"
             if [[ "$corrected" == "B - Week-"*.md ]]; then
               corrected="${corrected//Week-/Week }"
             fi
           
             # Skip if unchanged
             if [[ "$corrected" == "$file" ]]; then
-              echo "ℹ️  '$file' already normalized; skipping"
+              echo "ℹ '$file' already normalized; skipping"
               continue
             fi
           
             # If destination exists, replace it (single canonical filename)
             if [[ -e "$corrected" && "$corrected" != "$file" ]]; then
-              echo "⚠️  Destination '$corrected' exists; replacing"
+              echo " Destination '$corrected' exists; replacing"
               rm -f -- "$corrected"
             fi
           
-            echo "🔧 Rename: '$file' → '$corrected'"
+            echo "Rename: '$file' -> '$corrected'"
             mv -- "$file" "$corrected"
             RENAMED=true
           done
@@ -139,9 +139,9 @@ jobs:
           shopt -u nullglob
           
           if [ "$RENAMED" = true ]; then
-            echo "✅ Filename normalization completed"
+            echo "Filename normalization completed"
           else
-            echo "📝 No filename transformations to fix"
+            echo "No filename transformations to fix"
           fi
           
           echo "=== DEBUG: Files in wiki-src (post-normalization) ==="
@@ -173,7 +173,7 @@ jobs:
             exit 0
           fi
           
-          git commit -m "Auto-sync: Wiki → wiki-src [from-wiki] $(date -u +"%Y-%m-%d %H:%M UTC")"
+          git commit -m "Auto-sync: Wiki -> wiki-src [from-wiki] $(date -u +"%Y-%m-%d %H:%M UTC")"
           echo "has_changes=true" >> $GITHUB_OUTPUT
 
       - name: Try direct push to main
@@ -196,7 +196,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Sync wiki -> wiki-src [from-wiki]"
-          title: "Wiki → wiki-src: changes from Wiki (review due to branch divergence)"
+          title: "Wiki -> wiki-src: changes from Wiki (review due to branch divergence)"
           body: |
             This PR syncs changes from the **Wiki** into `wiki-src/`.
             
@@ -214,11 +214,11 @@ jobs:
         run: |
           set -euxo pipefail
           if [ "${{ steps.wiki-check.outputs.is_safe_to_sync }}" = "false" ]; then
-            echo "🛡️  Wiki sync skipped - protecting template files"
+            echo " Wiki sync skipped - protecting template files"
           elif [ "${{ steps.commit-step.outputs.has_changes }}" != "true" ]; then
-            echo "📝 No wiki changes detected - nothing to sync"
+            echo "No wiki changes detected - nothing to sync"
           elif [ "${{ steps.push-main.outputs.pushed }}" = "true" ]; then
-            echo "✅ Wiki changes synced successfully via direct commit"
+            echo "Wiki changes synced successfully via direct commit"
           else
-            echo "📦 Created a PR because main wasn't fast-forwardable"
+            echo "Created a PR because main wasn't fast-forwardable"
           fi

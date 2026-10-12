@@ -20,7 +20,7 @@ The learning outcomes for this block are the following:
 
 6.4 Image Data: The student demonstrates the ability to collect, label, and process image data.
 
-8.5 Computer Vision: The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Furthermore, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
+8.5 Computer Vision: The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Also, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
 
 8.6 Robotic Control and Reinforcement Learning: The student is able to design, implement, and evaluate control algorithms and reinforcement learning algorithms, integrating computer vision techniques for perception, to effectively address business objectives.
 
@@ -97,8 +97,8 @@ will look like this:
 You can preview `.md` files easily with VSCode. Open the file you would like to preview and use:
 
 - Shortcut
-    - macOS → `⌘ + Shift + V`
-    - Windows/Linux → `Ctrl + Shift + V`
+    - macOS -> `⌘ + Shift + V`
+    - Windows/Linux -> `Ctrl + Shift + V`
 
 - Icon method:
     - Click the preview icon (a small split-screen) in the top-right corner of the editor.

@@ -27,10 +27,10 @@ jobs:
       - name: Verify confirmation
         run: |
           if [ "${{ github.event.inputs.confirm }}" != "RESTORE" ]; then
-            echo "❌ Confirmation not provided. You must type 'RESTORE' to proceed."
+            echo "Confirmation not provided. You must type 'RESTORE' to proceed."
             exit 1
           fi
-          echo "✅ Confirmation verified"
+          echo "Confirmation verified"
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,15 +41,15 @@ jobs:
         run: |
           set -eux
           
-          echo "📋 Using local template files from templates/ directory..."
+          echo "Using local template files from templates/ directory..."
           
           if [ -d "templates" ]; then
-            echo "✅ Found local templates directory"
-            echo "📋 Template contents:"
+            echo "Found local templates directory"
+            echo "Template contents:"
             ls -la templates/
           else
-            echo "❌ No templates/ directory found"
-            echo "💡 You need to create a templates/ directory with the original template files"
+            echo "No templates/ directory found"
+            echo "You need to create a templates/ directory with the original template files"
             exit 1
           fi
 
@@ -58,7 +58,7 @@ jobs:
         run: |
           set -eux
           
-          echo "🔄 Restoring wiki-src from local templates..."
+          echo "Restoring wiki-src from local templates..."
           
           # Remove current wiki-src content
           if [ -d "wiki-src" ]; then
@@ -69,8 +69,8 @@ jobs:
           
           # Copy fresh template files
           cp -r templates/* wiki-src/
-          echo "✅ wiki-src restored from local templates"
-          echo "📋 Restored files:"
+          echo "wiki-src restored from local templates"
+          echo "Restored files:"
           ls -la wiki-src/
 
       - name: Restore wiki from templates
@@ -78,12 +78,12 @@ jobs:
         run: |
           set -eux
           
-          echo "🔄 Restoring wiki from local templates..."
+          echo "Restoring wiki from local templates..."
           WIKI_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git"
           
           # Clone or create wiki repo
           if ! git clone "$WIKI_URL" wiki 2>/dev/null; then
-            echo "📁 Wiki repository doesn't exist, creating..."
+            echo "Wiki repository doesn't exist, creating..."
             mkdir wiki
             cd wiki
             git init
@@ -96,14 +96,14 @@ jobs:
           git config user.email "actions@github.com"
           
           # Clear existing wiki content
-          echo "🗑️ Clearing existing wiki content..."
+          echo "Clearing existing wiki content..."
           rm -rf ./*.md 2>/dev/null || true
           
           # Copy fresh template files
-          echo "📋 Copying fresh template files to wiki..."
+          echo "Copying fresh template files to wiki..."
           cp ../templates/*.md . 2>/dev/null || true
           
-          echo "✅ Template files copied to wiki:"
+          echo "Template files copied to wiki:"
           ls -la *.md
           
           # Add and commit all template files
@@ -113,9 +113,9 @@ jobs:
             git push origin HEAD:master || git push origin HEAD:main || {
               git push -u origin HEAD
             }
-            echo "✅ Wiki restored with fresh template files"
+            echo "Wiki restored with fresh template files"
           else
-            echo "📝 No changes needed - wiki already matches fresh templates"
+            echo "No changes needed - wiki already matches fresh templates"
           fi
           
           cd ..
@@ -130,27 +130,27 @@ jobs:
             git add wiki-src/
             git commit -m "Restore wiki-src to original template state"
             git push
-            echo "✅ wiki-src changes committed to repository"
+            echo "wiki-src changes committed to repository"
           else
-            echo "📝 No wiki-src changes to commit"
+            echo "No wiki-src changes to commit"
           fi
 
       - name: Summary
         run: |
-          echo "🎉 Restoration to template state completed!"
+          echo "Restoration to template state completed!"
           echo ""
           echo "What was restored:"
           if [ "${{ github.event.inputs.restore_target }}" == "wiki-only" ]; then
-            echo "  ✅ Wiki repository (fresh template files)"
-            echo "  ❌ wiki-src directory (unchanged)"
+            echo "  Wiki repository (fresh template files)"
+            echo "  wiki-src directory (unchanged)"
           elif [ "${{ github.event.inputs.restore_target }}" == "wiki-src-only" ]; then
-            echo "  ❌ Wiki repository (unchanged)"
-            echo "  ✅ wiki-src directory (fresh template files)"
+            echo "  Wiki repository (unchanged)"
+            echo "  wiki-src directory (fresh template files)"
           else
-            echo "  ✅ Wiki repository (fresh template files)"
-            echo "  ✅ wiki-src directory (fresh template files)"
+            echo "  Wiki repository (fresh template files)"
+            echo "  wiki-src directory (fresh template files)"
           fi
           echo ""
           echo "Source: Local templates/ directory"
-          echo "✅ Perfect 'factory reset' to original template state"
-          echo "✅ Ready for testing or student use"
+          echo "Perfect 'factory reset' to original template state"
+          echo "Ready for testing or student use"

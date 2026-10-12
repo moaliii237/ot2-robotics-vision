@@ -35,7 +35,7 @@ Final model: [weights/PPO_pathB_best.zip](weights/PPO_pathB_best.zip) (also expo
 | Final model weights | [weights/PPO_pathB_best.zip](weights/PPO_pathB_best.zip) (= `weights/latest.zip`) |
 | GIF showing the agent reaching targets | [rl_demo.gif](rl_demo.gif) (5 random targets, 73 frames) |
 | Baseline PPO config | [configs/ppo_baseline.yaml](configs/ppo_baseline.yaml) |
-| Robust 60-target eval log | [results/rl_robust_eval_pathB.json](results/rl_robust_eval_pathB.json) |
+| Reliable 60-target eval log | [results/rl_robust_eval_pathB.json](results/rl_robust_eval_pathB.json) |
 | 5-target demo eval log | [results/rl_eval_log.json](results/rl_eval_log.json) |
 | PID-vs-RL comparison results | [results/pid_vs_rl.json](results/pid_vs_rl.json), [results/pid_vs_rl.png](results/pid_vs_rl.png) |
 
@@ -197,7 +197,7 @@ shaping, not capacity.
 
 ## Results
 
-### Robust 60-target evaluation (3 seeds × 20 random targets)
+### Reliable 60-target evaluation (3 seeds × 20 random targets)
 
 Run via `eval_robust.py --n_seeds 3 --n_targets_per_seed 20`. Uses a deterministic
 policy (`deterministic=True`), envelope-interior targets, no random start (always env
@@ -333,7 +333,7 @@ From `D:\Robotics\` with the venv active:
 # 1. Wrapper smoke test (spec deliverable: 1000 random actions)
 python task11_rl_controller\test_wrapper.py
 
-# 2. Robust 60-target eval against the submitted model
+# 2. Reliable 60-target eval against the submitted model
 python task11_rl_controller\eval_robust.py `
     --model D:\Robotics\task11_rl_controller\weights\latest.zip `
     --log D:\Robotics\task11_rl_controller\results\rl_robust_eval_pathB.json

@@ -1,6 +1,6 @@
 # ILO 8.5 Computer Vision
 
-The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Furthermore, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
+The student demonstrates mastery in programming skills to acquire, pre-process, process, and manage digital images, alongside applying modeling techniques, including traditional computer vision and deep learning methods, to create value across various domains. Also, the student is proficient in developing proof-of-concept solutions through an iterative cycle with explicit stakeholder involvement and can implement applications within existing architectures.
 
 |pre-requisites|A: 10 points|B: 20 points|
 |--|--|--|

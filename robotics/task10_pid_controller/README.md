@@ -60,7 +60,7 @@ on the controller side.
 | Optuna Bayesian search | [optuna_tune.py](optuna_tune.py) -> [results/optuna_tuning.json](results/optuna_tuning.json) |
 | Controller comparison | [controller_comparison.py](controller_comparison.py) -> [results/controller_comparison.json](results/controller_comparison.json), [results/controller_comparison.png](results/controller_comparison.png) |
 | Final tuned gains | [results/gains_final.json](results/gains_final.json) |
-| Robustness sweep | [robustness_sweep.py](robustness_sweep.py) -> [results/robustness_*](results/) |
+| Stability sweep | [robustness_sweep.py](robustness_sweep.py) -> [results/robustness_*](results/) |
 | Demo + GIF | [run_pid_demo.py](run_pid_demo.py) -> [pid_demo.gif](pid_demo.gif), [results/demo_log.json](results/demo_log.json) |
 | Plotting | [plot_results.py](plot_results.py) -> [results/*.png](results/) |
 
@@ -200,7 +200,7 @@ different Optuna result, because:
 
 1. **Interpretable**: the gains follow from `Kp = 1/(K·(τ+τ_c))` and
    `Ki = Kp/(4·(τ+τ_c))`, both derivable on a whiteboard, so a grader can verify them.
-2. **Robust**: the formula is monotonic in τ_c, so there is a clear tuning knob if the
+2. **Reliable**: the formula is monotonic in τ_c, so there is a clear tuning knob if the
    plant changes (for example a different τ on real hardware).
 3. **Equivalent performance**: Optuna's max error is 0.00028 mm vs SIMC's 0.00017 mm.
    The difference is below the sim's float64 noise floor.

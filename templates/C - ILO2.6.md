@@ -10,7 +10,7 @@ The student is able to apply critical thinking skills during the block on the pr
 
 This ILO is linked to worklog, learning log, and DataLab Task 14.
 
-- Worklog: In your worklog, ensure that you log items where the “Most suited ILO” is ILO 2.6, with a minimum of two entries per week.
+- Worklog: In your worklog, ensure that you log items where the "Most suited ILO" is ILO 2.6, with a minimum of two entries per week.
 - Learning Log: In Section B (Reflection) of your learning log, address the question linked to ILO 2.6 each week based on your worklog entries of the week.
 - Presentation: During your presentation, highlight at least three significant iterations selected from your worklog or learning log.
 
@@ -18,7 +18,7 @@ This ILO is linked to worklog, learning log, and DataLab Task 14.
 
 Justify why you meet this criterion.
 
-For example: “I logged at least five work items each week, with a total of 50 work items for the entire project, as documented in my worklog. Each week, I summarized these items in Section B of my learning log. In my presentation (slides 8, 9, and 10), I showcased three key iterations that were most impactful.”
+For example: "I logged at least five work items each week, with a total of 50 work items for the entire project, as documented in my worklog. Each week, I summarized these items in Section B of my learning log. In my presentation (slides 8, 9, and 10), I showcased three key iterations that were most impactful."
 
 ### Evidence
 

@@ -32,7 +32,7 @@ Justify why you meet this criterion.
 
 Justify why you meet this criterion.
 
-For example “I was able to answer most of the questions during the presentation. Alican asked me the effect of patch size on model performance and I explained that higher patch size provides more context at the expense of computational cost”.
+For example "I was able to answer most of the questions during the presentation. Alican asked me the effect of patch size on model performance and I explained that higher patch size provides more context at the expense of computational cost".
 
 ### Evidence
 
